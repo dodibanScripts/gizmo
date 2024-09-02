@@ -1,11 +1,3 @@
-MC = nil
-Citizen.CreateThread(function()
-    TriggerEvent("ple_morecontrols:getControls",function(cb)
-        MC = cb
-    end)
-end)
-
-
 
 local usingGizmo = false
 local editingStop = false
@@ -76,7 +68,7 @@ local function useGizmo(handle)
     })
 
     toggleNuiFrame(true)
-    MC.StartFocus(GetCurrentResourceName())
+ 
     -- Configurar o grupo de prompts e criar os prompts
     local gizmoPromptGroup = GetRandomIntInRange(0, 0xffffff)
     local prompts = {}
@@ -93,7 +85,7 @@ local function useGizmo(handle)
         table.insert(prompts, {prompt = prompt, control = control, action = action})
     end
 
-    -- CriaÁ„o dos prompts para controlar o gizmo
+    -- Cria√ß√£o dos prompts para controlar o gizmo
     createPrompt('Ajustar Objeto', 0x8FD015D8, 'adjust_mode') -- W
     createPrompt('Modo de Giro', 0x26E9DC00, 'rotate_mode') -- R
     createPrompt('Colocar no solo', 0xCEFD9220, 'place_on_ground') -- LALT
@@ -112,17 +104,17 @@ local function useGizmo(handle)
 
             if IsControlJustPressed(0, promptInfo.control) then
                 if promptInfo.action == 'adjust_mode' then
-                    -- Implementar lÛgica de ajuste aqui
+                    -- Implementar l√≥gica de ajuste aqui
                 elseif promptInfo.action == 'rotate_mode' then
-                    -- Implementar lÛgica de rotaÁ„o aqui
+                    -- Implementar l√≥gica de rota√ß√£o aqui
                 elseif promptInfo.action == 'place_on_ground' then
-                    -- Implementar lÛgica de colocar no ch„o aqui
+                    -- Implementar l√≥gica de colocar no ch√£o aqui
                 elseif promptInfo.action == 'stop_editing' then
-                    -- Parar a ediÁ„o
+                    -- Parar a edi√ß√£o
                     usingGizmo = false
                     break
                 elseif promptInfo.action == 'cancel' then
-                    -- Cancelar a ediÁ„o
+                    -- Cancelar a edi√ß√£o
                     usingGizmo = false
                     editingStop = true
                     break
@@ -171,7 +163,7 @@ end)
 
 RegisterNUICallback('finishEdit', function(data, cb)
     toggleNuiFrame(false)
-    MC.EndFocus(GetCurrentResourceName())
+   
     SendNUIMessage({
         action = 'setGizmoEntity',
         data = {
@@ -189,7 +181,7 @@ RegisterNUICallback('stopEditing', function(data, cb)
     TriggerEvent('deleteBox')
     ClearPedTasks(PlayerPedId())
     toggleNuiFrame(false)
-    MC.EndFocus(GetCurrentResourceName())
+
     editingStop = true
     SendNUIMessage({
         action = 'setGizmoEntity',
