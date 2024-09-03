@@ -88,7 +88,7 @@ local function useGizmo(handle)
     -- Criação dos prompts para controlar o gizmo
     createPrompt('Adjust object', 0x8FD015D8, 'adjust_mode') -- W
     createPrompt('Turn mode', 0x26E9DC00, 'rotate_mode') -- R
-    createPrompt('Place not only', 0xCEFD9220, 'place_on_ground') -- LALT
+    createPrompt('Place on ground', 0xCEFD9220, 'place_on_ground') -- LALT
     createPrompt('Confirm', 0x8CC9CD42, 'stop_editing') -- Esc
     createPrompt('To go back', 0x308588E6, 'cancel') -- Backspace
 
