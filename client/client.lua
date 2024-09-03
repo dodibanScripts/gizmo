@@ -86,11 +86,11 @@ local function useGizmo(handle)
     end
 
     -- Criação dos prompts para controlar o gizmo
-    createPrompt('Ajustar Objeto', 0x8FD015D8, 'adjust_mode') -- W
-    createPrompt('Modo de Giro', 0x26E9DC00, 'rotate_mode') -- R
-    createPrompt('Colocar no solo', 0xCEFD9220, 'place_on_ground') -- LALT
-    createPrompt('Confirmar', 0x8CC9CD42, 'stop_editing') -- Esc
-    createPrompt('Voltar', 0x156F7119, 'cancel') -- Backspace
+    createPrompt('Adjust object', 0x8FD015D8, 'adjust_mode') -- W
+    createPrompt('Turn mode', 0x26E9DC00, 'rotate_mode') -- R
+    createPrompt('Place not only', 0xCEFD9220, 'place_on_ground') -- LALT
+    createPrompt('Confirm', 0x8CC9CD42, 'stop_editing') -- Esc
+    createPrompt('To go back', 0x308588E6, 'cancel') -- Backspace
 
     while usingGizmo do
         local coords = GetEntityCoords(handle)
